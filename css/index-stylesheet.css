@@ -1,0 +1,441 @@
+/* Universal styles */
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+body {
+  max-width: 2000px;
+}
+
+.headline,
+.section-title,
+.section-header {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+.headline,
+.section-title {
+  font-size: 2.5rem;
+}
+
+.section-header {
+  font-size: 1.5rem;
+}
+
+a:link,
+a:visited,
+/* a:hover, */
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+/* CSS for Header (Top banner & Navigation)  */
+
+.desktop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px dashed red;   -- For de-bugging */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  margin-left: 1.5rem;
+}
+
+.logo img {
+  height: 2rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+.logo-text.colmar {
+ color: #0F0F0F;
+}
+
+.logo-text.academy {
+  color: #A8A6A5;
+}
+
+.desktop-navigation {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+.desktop-navigation a {
+  font-size: 1rem;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+/* Page Content divided into four "Sections": .banner, .information, .courses, & .thesis */
+  /* Top level organization: Center page content vertically */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  max-width: 100%;
+  /*border: 1px dashed green;  -- For de-bugging */
+}
+  /* Second order organization: .banner, .information, & .thesis sections have horizontal flex containers w/ .main-content on the left and .supporting-content on the right; .courses contains an horizontal flexbox "image-gallery" of .courses-category "containers" (w/ flex-wrap enabled), adjust size of "containers" as required; FOR Tablet & Mobile Layout, these flexboxes change to flex-direction: column */
+
+#banner>.content,
+#information>.content,
+#thesis>.content {
+  display: flex;
+  margin-left: 1.5rem;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+}
+
+.main-content {
+  width: 60%;
+  /*border: 1px dashed purple;  -- For de-bugging */
+}
+
+.supporting-content {
+  width: 40%;
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /*border: 1px dashed red;  -- For de-bugging */
+}
+
+/* Light grey backgrounds in selectyed sections to break up layout */
+.background-accent {
+  background-color: #EEEEEE;
+}
+
+.background-accent-override {
+  background-color: #FFFFFF;
+}
+
+.supporting-content-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 1rem 1rem;
+}
+
+#banner .supporting-content {
+  justify-content: center;
+}
+
+.headline {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#banner .sub-headline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+#information .supporting-content {
+  justify-content: space-between;
+}
+
+  /* Second order organization: #courses section is has a flex container w/ individual boxes describing course-curriculum/categories -- mobile view switches to vertical column with div boxes  */
+#courses .content {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-left: 0;
+}
+
+
+#information .supporting-content-container>.content,
+#thesis .supporting-content-container>.content {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1rem;
+}
+
+.main-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+.supporting-content img {
+  width: 35%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+#banner .button {
+  color: white;
+  background-color: #0F0F0F;
+  padding: .5rem 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+    /* formating of quote in .banner section */
+q, cite {
+  display: block;
+  margin: 1.5rem 0;
+}
+
+
+
+.courses-gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-right: 3.5rem;
+  margin-left: 3.5rem;
+  /*border: 1px dashed red;  -- For de-bugging */
+}
+
+.courses-category img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.courses-category>h3,
+.courses-category>p {
+  margin: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+
+
+  /* Media queries to resize the .courses-category containers when they transition from a 2row x 3 column grid to a 3row x 2 column grid, and to switch to mobile view/buttons at transition to 1 column */
+  @media only screen and (min-width: 1093px) {
+  .courses-category {
+    width: 30%;
+    margin: 1rem;
+  }
+
+}
+
+  @media only screen and (max-width: 1092px) {
+  .courses-category {
+    width: 45%;
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 773px) {
+  courses-gallery.desktop-only {
+  display: none;
+  }
+}
+
+.course-offerings-preface {
+  text-transform: uppercase;
+}
+
+/* Changes to layout at breakpoint for desktop to tablet layout conversion */
+@media screen and (min-width: 791px) {
+  .banner-image.tablet-and-mobile,
+  #courses.tablet-and-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .desktop-only,
+  .banner-image.desktop-only {
+    display: none;
+  }
+
+  #banner>.content,
+  #thesis>.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  #information>.content {
+    margin-left: 0;
+  }
+
+  .main-content,
+  .supporting-content {
+    width: 100%;
+  }
+
+  .supporting-content {
+    margin-left: 0;
+  }
+
+  #courses .content {
+    width: 90%;
+    /*border: 1px dashed purple;  -- For de-bugging */
+  }
+
+  #courses .button {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: #EEEEEE;
+    padding: 1rem;
+    width: 100%;
+    margin: 0.5rem auto;
+
+  }
+
+  .section-title {
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .supporting-content-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 1rem;
+  }
+
+  .supporting-content-container img {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  #information .supporting-content-container>.content {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .supporting-content-container .content>* {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1.5rem;
+}
+
+/* Adjust sizes of video player to webpage size here */
+
+  video {
+    width: 800px;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    video {
+      width: 700px;
+    }
+  }
+
+  @media only screen and (max-width: 1240px) {
+    video {
+      width: 600px;
+    }
+  }
+
+  @media only screen and (max-width: 1080px) {
+    video {
+      width: 500px;
+    }
+  }
+
+  @media only screen and (max-width: 890px) {
+    video {
+      width: 400px;
+    }
+  }
+
+  /* At the following screen sizes, the video now has no content to the right of it... re-size to the width of the viewport minus accomodations for margins and space to shrink to next breakpoint */
+
+  @media only screen and (max-width: 791px) {
+    video {
+      width: 690px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    video {
+      width: 350px;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    video {
+      width: 300px;
+    }
+  }
+
+  @media only screen and (max-width: 300px) {
+    video {
+      width: 200px;
+    }
+  }
+
+/* Media queries to switch elements from desktop-veiw elements & layout to mobile-view elements & layout */
+
+@media only screen and (min-width: 701px) {
+  .mobile-header {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .desktop-header {
+    display: none;
+  }
+
+  .mobile-header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4rem;
+  }
+
+  .desktop-tablet-only {
+    display: none;
+  }
+
+@media only screen and (min-width: 400px) {
+  .headline,
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-header,
+  .sub-headline {
+    font-size: 1.5rem;
+  }
+
+
+
+}
